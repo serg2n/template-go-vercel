@@ -3,6 +3,7 @@ package handler
 import (
 	"fmt"
 	"net/http"
+	"io/ioutil"
 )
 
 func Hello(w http.ResponseWriter, r *http.Request) {
