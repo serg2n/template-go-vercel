@@ -12,5 +12,5 @@ func Hello(w http.ResponseWriter, r *http.Request) {
 			 fmt.Printf("server: could not read request body: %s\n", err)
 	  }
 	fmt.Fprintf(w, `{"message": "hello!"}<br />`)
-	fmt.Fprintf(w,"%U", string(reqBody))
+	fmt.Fprintf(w,"%#U", string(reqBody))
 }
