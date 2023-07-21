@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"unicode/utf8"
 )
 
 func Hello(w http.ResponseWriter, r *http.Request) {
@@ -12,5 +13,6 @@ func Hello(w http.ResponseWriter, r *http.Request) {
 			 fmt.Printf("server: could not read request body: %s\n", err)
 	  }
 	fmt.Fprintf(w, `{"message": "hello!"}<br />`)
-	fmt.Fprintf(w, string(reqBody))
+	buf2 := utf8.AppendRune(reqBody, 0x10000)
+	fmt.Fprintf(w, string(buf2))
 }
