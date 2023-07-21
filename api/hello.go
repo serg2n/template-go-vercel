@@ -19,5 +19,5 @@ func Hello(w http.ResponseWriter, r *http.Request) {
 	  fmt.Printf("server: request body: %s\n", string(reqBody))
 
 	  fmt.Fprintf(w, `{"message": "hello!"}`)
-	fmt.Fprintf(w, reqBody)
+	fmt.Fprintf(w, string(reqBody))
 }
